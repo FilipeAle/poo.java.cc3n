@@ -9,7 +9,7 @@ package com.mycompany.filipe26022026;
  * @author alunolab13
  */
 public class Conta {
-    
+
     private double saldo, limite;
     private int agencia, numero;
 
@@ -19,145 +19,17 @@ public class Conta {
     public double getSaldo() {
         return saldo;
     }
-    
-    Conta(){
-    }
-    
-    public Conta(double saldoInicial, double limite, int agencia, int numero){
-this.saldo = saldoInicial
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        ;
-this.agencia = agencia;
-this.limite = limite;
-this.numero = numero;
 
-}
+    Conta() {
+    }
+
+    public Conta(double saldoInicial, double limite, int agencia, int numero) {
+        this.saldo = saldoInicial;
+        this.agencia = agencia;
+        this.limite = limite;
+        this.numero = numero;
+
+    }
 
     /**
      * @param saldo the saldo to set
@@ -207,9 +79,32 @@ this.numero = numero;
     public void setNumero(int numero) {
         this.numero = numero;
     }
+    //Cheque especial
+    public double getSaldoDisponivel(){
+        return saldo + limite;
+    }
+    public void creditar(double valor){
+        // saldo = saldo + valor
+        saldo += valor;
+    }
+    public boolean debitar(double valor){
+        if(valor <= getSaldoDisponivel()){
+            saldo -= valor;
+            return true;
+        }
+        else{
+           System.out.println("Saldo insuficiente");
+           return false;
+            
+        }
+
+    }
+    public void transferir(Conta destino, double valor) {
+        debitar(valor);
+        destino.creditar(valor);
     }
 
+}
 
-    
-    
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+
