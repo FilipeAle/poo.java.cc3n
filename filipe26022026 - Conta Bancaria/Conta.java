@@ -2,12 +2,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.filipe26022026;
+package com.mycompany.mavenproject1;
 
 /**
  *
- * @author alunolab13
+ * @author alunodev13
  */
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+
 public class Conta {
 
     private double saldo, limite;
@@ -99,12 +104,16 @@ public class Conta {
         }
 
     }
-    public void transferir(Conta destino, double valor) {
-        debitar(valor);
+    public boolean transferir(Conta destino, double valor) {
+        if(this.debitar(valor)){
         destino.creditar(valor);
+        return true;
+        }else{
+        System.out.println("Transferencia não foi concluida");
+        return false;
+        }
     }
 
 }
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
 
