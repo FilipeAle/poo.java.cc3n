@@ -2,60 +2,118 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.filipe23022026;
+package com.mycompany.mavenproject1;
 
 /**
  *
- * @author alunolab01
+ * @author alunodev13
  */
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+
 public class Conta {
 
-    private double saldo;
+    private double saldo, limite;
     private int agencia, numero;
 
+    /**
+     * @return the saldo
+     */
     public double getSaldo() {
         return saldo;
     }
 
-    void setAgencia(int agencia) {
+    Conta() {
+    }
+
+    public Conta(double saldoInicial, double limite, int agencia, int numero) {
+        this.saldo = saldoInicial;
+        this.agencia = agencia;
+        this.limite = limite;
+        this.numero = numero;
+
+    }
+
+    /**
+     * @param saldo the saldo to set
+     */
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
+
+    /**
+     * @return the limite
+     */
+    public double getLimite() {
+        return limite;
+    }
+
+    /**
+     * @param limite the limite to set
+     */
+    public void setLimite(double limite) {
+        this.limite = limite;
+    }
+
+    /**
+     * @return the agencia
+     */
+    public int getAgencia() {
+        return agencia;
+    }
+
+    /**
+     * @param agencia the agencia to set
+     */
+    public void setAgencia(int agencia) {
         this.agencia = agencia;
     }
 
-    int getAgencia() {
-        return agencia;
-    }
-    
-    void setNumero(int numero){
-        this.numero = numero;
-    }
-    
-    int getNumero(){
+    /**
+     * @return the numero
+     */
+    public int getNumero() {
         return numero;
     }
 
-    Conta() {
-
-    }
-
-    public Conta(int agencia, int numero, double valor) {
-        this.agencia = agencia;
+    /**
+     * @param numero the numero to set
+     */
+    public void setNumero(int numero) {
         this.numero = numero;
-        creditar(valor);
+    }
+    //Cheque especial
+    public double getSaldoDisponivel(){
+        return saldo + limite;
+    }
+    public void creditar(double valor){
+        // saldo = saldo + valor
+        saldo += valor;
+    }
+    public boolean debitar(double valor){
+        if(valor <= getSaldoDisponivel()){
+            saldo -= valor;
+            return true;
+        }
+        else{
+           System.out.println("Saldo insuficiente");
+           return false;
+            
+        }
 
     }
-
-    public void creditar(double valor) {
-        saldo = saldo + valor;
-    }
-
-    public void debitar(double valor) {
-        saldo = saldo - valor;
-    }
-
-    public void transferir(Conta destino, double valor) {
-        debitar(valor);
+    public boolean transferir(Conta destino, double valor) {
+        if(this.debitar(valor)){
         destino.creditar(valor);
+        return true;
+        }else{
+        System.out.println("Transferencia não foi concluida");
+        return false;
+        }
     }
 
 }
+
 
