@@ -8,21 +8,6 @@ package com.mycompany.conta_bancaria;
  *
  * @author alunolab13
  */
-public class Notificador {
-    private String canal;
-
-    public Notificador(String canal) {
-        this.canal = canal;
-    }
-
-    /**
-     * @return the canal
-     */
-    public String getCanal() {
-        return canal;
-    }
-    
-    
-    
+public class ContaCorrente{
     
 }
